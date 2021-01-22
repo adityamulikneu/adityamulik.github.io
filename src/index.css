@@ -15,3 +15,16 @@
   height: 200px;
   border-radius: 50%;
 }
+
+.instagram-container {
+  display: flex;
+}
+
+.insta-embed {
+  max-width: 20%;
+  padding: 3em;
+}
+
+.insta-embed:hover {
+  transform: scale(1.1); 
+}
