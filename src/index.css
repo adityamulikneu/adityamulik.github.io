@@ -25,6 +25,10 @@
   padding: 3em;
 }
 
+.new {
+  font-size: 3em;
+}
+
 .insta-embed:hover {
   transform: scale(1.1); 
 }
