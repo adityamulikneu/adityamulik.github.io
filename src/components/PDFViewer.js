@@ -3,9 +3,16 @@ import Modal from '@material-ui/core/Modal';
 import PDF from '@mikecousins/react-pdf';
 import './PDFViewer.css';
 import PropTypes from 'prop-types';
+import { saveAs } from 'file-saver';
+import pdf from '../assets/Aditya_Mulik_Resume.pdf';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
+import { Icon } from "@material-ui/core";
 
 // const useStyles = makeStyles((theme) => ({
 //   modal: {
@@ -56,24 +63,42 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
   
   const onDocumentError = (err) => {
       console.error('pdf viewer error:', err);
-   }
+  };
+
+  const saveFile = () => {
+    saveAs(
+      pdf, "Aditya_Mulik_Resume.pdf"
+    )
+  };
 
   return(
     <Modal 
-      className="pdfWrapper"
+      className="pdfModal"
       open={visible}
       onClose={onCancel}
       maskClosable={false}
-      style={{top: 20}}
       width={"50%"} 
     >
-      <div>
+      <div className="pdfWrapper">
         <PDF 
-          className="pdfWrapper"
+          className="pdf"
           file={pdf}
           onDocumentError={onDocumentError}
-        />
-      </div>      
+        >          
+        </PDF>    
+        <IconButton 
+            className="downloadPdf"
+            onClick={saveFile}
+          >
+            <GetAppIcon />
+          </IconButton>
+          <IconButton 
+            className="closePdf"
+            onClick={onCancel}
+          >
+            <CloseIcon />
+          </IconButton>          
+      </div>
     </Modal>
   )
 };

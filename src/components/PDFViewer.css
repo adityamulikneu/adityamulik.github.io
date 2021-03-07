@@ -1,6 +1,21 @@
-.pdfWrapper{
+.pdfModal {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: auto;
+  border: none;
+  top: 2020;
+}
+
+.pdfWrapper {
+  background-color: white;
+}
+
+.closePdf {  
+  top: 100;
+}
+
+.downloadPdf {
+  background-color: red;
 }

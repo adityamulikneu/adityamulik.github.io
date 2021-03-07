@@ -7,6 +7,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import CopyrightIcon from '@material-ui/icons/Copyright';
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   icons: {
     marginLeft: theme.spacing(2),
     cursor: 'pointer',
+    transition: "all 0.2s",
   },
   subheader: {
     backgroundColor: theme.palette.background.paper,

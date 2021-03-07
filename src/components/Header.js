@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Header.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typewriter from 'typewriter-effect/dist/core';
@@ -20,6 +21,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
+  appbar: {
+    backgroundColor: 'cyan'
+  },
   flex: {
     flex: 1
   },
@@ -31,18 +35,12 @@ const styles = theme => ({
 
 const Header = withStyles(styles) (({classes}) => (
   <div className={classes.root}>
-    <AppBar position="fixed">
+    <AppBar className={classes.appbar} position="fixed">
       <Toolbar className={classes.headerClass}>
-        <NavLink to="/" activeClassName="is-active" exact={true}>
-          <Typography
-            variant="title"
-            color="inherit"
-            className={classes.flex}
-          >
+        <NavLink className="is-active" to="/" activeClassName="is-active" exact={true}>
             Home
-          </Typography>
         </NavLink>
-        <NavLink to="/aboutme" activeClassName="is-active">
+        <NavLink className="is-active" to="/aboutme" activeClassName="is-active">
           <Typography
             variant="title"
             color="inherit"
@@ -51,7 +49,7 @@ const Header = withStyles(styles) (({classes}) => (
           About Me
           </Typography>
         </NavLink>
-        <NavLink to="/projects" activeClassName="is-active">
+        <NavLink className="is-active" to="/projects" activeClassName="is-active">
           <Typography
             variant="title"
             color="inherit"
@@ -60,7 +58,7 @@ const Header = withStyles(styles) (({classes}) => (
             My Work
           </Typography>
         </NavLink>        
-        <NavLink className={classes.flex} to="/contact" activeClassName="is-active">
+        <NavLink className="is-active" to="/contact" activeClassName="is-active">
           <Typography
             variant="title"
             color="inherit"

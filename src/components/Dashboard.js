@@ -26,6 +26,13 @@ const Dashboard = () => {
       >
         Resume
       </Button>
+      <Button
+        onClick={() => setShowPdf(!showPdf)}
+        variant="contained"
+        color="primary"
+      >
+        Contact Me!
+      </Button>
     </div>
   );
 };
