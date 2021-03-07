@@ -1,3 +1,3 @@
 # Portfolio Web Application
 
-Portfolio WebApp built using ReactJS.
+A Portfolio WebApp based on my repertoire built using ReactJS and Material UI Framework.
