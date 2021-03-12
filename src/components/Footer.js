@@ -9,6 +9,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 
+
 const useStyles = makeStyles((theme) => ({
   text: {
     padding: theme.spacing(2, 2, 0),
@@ -27,13 +28,15 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     top: 'auto',
     bottom: 0,
+    backgroundColor: "white",
   },
   grow: {
     flexGrow: 1,
   },
   customToolbar: {
     justifyContent: "center",
-    minHeight: 36
+    minHeight: 36,
+    color: theme.palette.text.primary,
   },
   toolbarMargin: theme.mixins.toolbar
 }));
@@ -43,7 +46,7 @@ const Footer = () => {
 
   return (
     <React.Fragment>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar} elevation={0}>
         <Toolbar className={classes.customToolbar}>
           <GitHubIcon 
             onClick={() => window.open('https://www.github.com/adityamulik', '_blank')}

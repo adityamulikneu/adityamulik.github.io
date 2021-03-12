@@ -77,7 +77,8 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
       open={visible}
       onClose={onCancel}
       maskClosable={false}
-      width={"50%"} 
+      style={{top: 20}}
+      width={"50%"}
     >
       <div className="pdfWrapper">
         <PDF 
@@ -91,12 +92,14 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
             onClick={saveFile}
           >
             <GetAppIcon />
+            <p className="tooltip-download">Download</p>
           </IconButton>
           <IconButton 
             className="closePdf"
             onClick={onCancel}
           >
             <CloseIcon />
+            <p className="tooltip-close">Close</p>
           </IconButton>          
       </div>
     </Modal>

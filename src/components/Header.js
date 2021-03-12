@@ -22,7 +22,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   appbar: {
-    backgroundColor: 'cyan'
+    backgroundColor: 'white'
   },
   flex: {
     flex: 1
@@ -35,37 +35,19 @@ const styles = theme => ({
 
 const Header = withStyles(styles) (({classes}) => (
   <div className={classes.root}>
-    <AppBar className={classes.appbar} position="fixed">
+    <AppBar className={classes.appbar} position="fixed" elevation={0}>
       <Toolbar className={classes.headerClass}>
-        <NavLink className="is-active" to="/" activeClassName="is-active" exact={true}>
+        <NavLink to="/" activeClassName="is-active" exact={true}>
             Home
         </NavLink>
-        <NavLink className="is-active" to="/aboutme" activeClassName="is-active">
-          <Typography
-            variant="title"
-            color="inherit"
-            className={classes.flex}
-          >
+        <NavLink to="/aboutme" activeClassName="is-active">
           About Me
-          </Typography>
         </NavLink>
-        <NavLink className="is-active" to="/projects" activeClassName="is-active">
-          <Typography
-            variant="title"
-            color="inherit"
-            className={classes.flex}
-          >
+        <NavLink to="/projects" activeClassName="is-active">
             My Work
-          </Typography>
         </NavLink>        
-        <NavLink className="is-active" to="/contact" activeClassName="is-active">
-          <Typography
-            variant="title"
-            color="inherit"
-            className={classes.flex}
-          >
+        <NavLink to="/contact" activeClassName="is-active">
             Contact
-          </Typography>
         </NavLink>
       </Toolbar>
     </AppBar>

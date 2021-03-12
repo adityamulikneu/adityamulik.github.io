@@ -1,14 +1,13 @@
 .pdfModal {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: auto;
   border: none;
-  top: 2020;
 }
 
-.pdfWrapper {
+/* .pdfWrapper {
   background-color: white;
 }
 
@@ -18,4 +17,51 @@
 
 .downloadPdf {
   background-color: red;
+} */
+
+.downloadPdf .tooltip-download {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 15px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
 }
+
+.downloadPdf:hover .tooltip-download {
+  visibility: visible;
+}
+
+.closePdf .tooltip-close {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 15px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.closePdf:hover .tooltip-close {
+  visibility: visible;
+}
+
