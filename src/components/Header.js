@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import AppBar from '@material-ui/core/AppBar';
+import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typewriter from 'typewriter-effect/dist/core';
 import Button from '@material-ui/core/Button';
@@ -35,23 +36,32 @@ const styles = theme => ({
 
 const Header = withStyles(styles) (({classes}) => (
   <div className={classes.root}>
-    <AppBar className={classes.appbar} position="fixed" elevation={0}>
+    <Container maxWidth="sm">
+      <AppBar className={classes.appbar} position="fixed" elevation={0}>
       <Toolbar className={classes.headerClass}>
-        <NavLink to="/" activeClassName="is-active" exact={true}>
-            Home
-        </NavLink>
-        <NavLink to="/aboutme" activeClassName="is-active">
-          About Me
-        </NavLink>
-        <NavLink to="/projects" activeClassName="is-active">
-            My Work
-        </NavLink>        
-        <NavLink to="/contact" activeClassName="is-active">
-            Contact
-        </NavLink>
+        <h1 className="name-header">
+          <NavLink to="/" style={{ textDecoration: 'none' }}>
+            Aditya Mulik
+          </NavLink>
+        </h1>
+        <div className="navbar-header">
+          <NavLink to="/" className="navlink" activeClassName="is-active" exact={true} style={{ textDecoration: 'none' }}>
+              Home
+          </NavLink>
+          <NavLink to="/aboutme" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+            About Me
+          </NavLink>
+          <NavLink to="/projects" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+              My Work
+          </NavLink>        
+          <NavLink to="/contact" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+              Contact
+          </NavLink>
+        </div>        
       </Toolbar>
     </AppBar>
     <div className={classes.toolbarMargin}/>
+    </Container>
   </div>
 )
 );
