@@ -14,19 +14,19 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 import { Icon } from "@material-ui/core";
 
-// const useStyles = makeStyles((theme) => ({
-//   modal: {
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   paper: {
-//     backgroundColor: theme.palette.background.paper,
-//     border: '2px solid #000',
-//     boxShadow: theme.shadows[5],
-//     padding: theme.spacing(2, 4, 3),
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
 // const Fade = React.forwardRef(function Fade(props, ref) {
 //   const { in: open, children, onEnter, onExited, ...other } = props;
@@ -60,6 +60,8 @@ import { Icon } from "@material-ui/core";
 // };
 
 const PDFViewer = ({pdf, onCancel, visible}) => {
+
+  const styles = useStyles();
   
   const onDocumentError = (err) => {
       console.error('pdf viewer error:', err);
@@ -73,7 +75,7 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
 
   return(
     <Modal 
-      className="pdfModal"
+      className={styles.modal}
       open={visible}
       onClose={onCancel}
       maskClosable={false}

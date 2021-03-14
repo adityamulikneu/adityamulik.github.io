@@ -109,7 +109,7 @@ const Header = (props) => {
             (
               <div>
                 <NavLink to="/" className="navlink" activeClassName="is-active" exact={true}>
-                    Home
+                  Home
                 </NavLink>  
                 <NavLink to="/aboutme" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
                   About Me
