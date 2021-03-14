@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
+import './Dashboard.css';
+import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typewriter from 'typewriter-effect';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import PDFViewer from './PDFViewer';
 import pdf from '../assets/Aditya_Mulik_Resume.pdf';
@@ -9,12 +12,13 @@ import image from '../assets/aditya.png';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import './Dashboard.css';
+import useMediaQuery from '@material-ui/core/useMediaQuery';;
 
 
 const Dashboard = () => {
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const [showPdf, setShowPdf] = useState(false);
 
   return(
@@ -55,7 +59,7 @@ const Dashboard = () => {
               visible={showPdf}
             />
             <Button
-              onClick={() => setShowPdf(!showPdf)}
+              onClick={() => { matches ? window.open(pdf) : setShowPdf(!showPdf) }}
               variant="contained"
               color="primary"
               style={{margin: "10px"}}
