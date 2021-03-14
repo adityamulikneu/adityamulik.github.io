@@ -67,6 +67,7 @@ const Dashboard = () => {
               Resume
             </Button>
             <Button
+              onClick={() => {window.location.href="mailto:aditya.mulik@gmail.com"}}
               variant="contained"
               color="primary"
               style={{margin: "10px"}}
