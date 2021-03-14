@@ -19,47 +19,59 @@ const Dashboard = () => {
 
   return(
     <React.Fragment>
-      <Grid container direction={"column"} spacing={4} alignItems="center" justify="center" style={{ minHeight: "100vh" }}>
-        <Grid item xs={12} sm={6} md={3} style={{textAlign: "center"}}>
-          <img src={image} alt="profile-pic" className="profile-pic"/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3} style={{textAlign: "center"}}>
-          <Typography>
-            <Typewriter 
-              onInit={(typewriter) => {
-                typewriter.typeString("Hi, I'm Aditya Mulik & I'm a Software Developer!")
-                  .pause(1000)
-                  .changeDeleteSpeed(10)
-                  .deleteChars(25)
-                  .typeString("and a passionate programmer!")
-                  .start()
-              }}
+      <div style={{ padding: 20 }}>
+        <Grid container       
+          xs={12} sm={12} md={12}    
+          direction={"column"} 
+          spacing={5} 
+          justify="space-evenly"
+          alignContent="center"
+          style={{ 
+            margin: 0,
+            width: '100%',
+          }}
+        >
+          <Grid item style={{textAlign: "center"}}>
+            <img src={image} alt="profile-pic" className="profile-pic"/>
+          </Grid>
+          <Grid item>
+            <Typography
+            >
+              <Typewriter 
+                onInit={(typewriter) => {
+                  typewriter.typeString("Hi, I'm Aditya Mulik & I'm a Software Developer!")                  
+                    .pauseFor(2000)
+                    .deleteChars(25)
+                    .typeString("I'm a passionate programmer!")  
+                    .start()                
+                }}
+              />
+            </Typography>   
+          </Grid>
+          <Grid item style={{textAlign: "center"}}>
+            <PDFViewer 
+              pdf={pdf}
+              onCancel={() => setShowPdf(false)}
+              visible={showPdf}
             />
-          </Typography>   
+            <Button
+              onClick={() => setShowPdf(!showPdf)}
+              variant="contained"
+              color="primary"
+              style={{margin: "10px"}}
+            >
+              Resume
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{margin: "10px"}}
+            >
+              Email Me!
+            </Button>
+          </Grid>            
         </Grid>
-        <Grid className="dashboard-buttons" item xs={12} sm={6} md={3}>
-          <PDFViewer 
-            pdf={pdf}
-            onCancel={() => setShowPdf(false)}
-            visible={showPdf}
-          />
-          <Button
-            onClick={() => setShowPdf(!showPdf)}
-            variant="contained"
-            color="primary"
-            style={{margin: "10px"}}
-          >
-            Resume
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            style={{margin: "10px"}}
-          >
-            Email Me!
-          </Button>
-        </Grid>            
-      </Grid>
+      </div>
     </React.Fragment>
   );
 };
