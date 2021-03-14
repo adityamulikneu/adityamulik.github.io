@@ -1,18 +1,12 @@
-import React, {useState} from "react";
-import Modal from '@material-ui/core/Modal';
-import PDF from '@mikecousins/react-pdf';
+import React from "react";
 import './PDFViewer.css';
-import PropTypes from 'prop-types';
 import { saveAs } from 'file-saver';
-import pdf from '../assets/Aditya_Mulik_Resume.pdf';
+import PDF from '@mikecousins/react-pdf';
+import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import Backdrop from '@material-ui/core/Backdrop';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
-import { Icon } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

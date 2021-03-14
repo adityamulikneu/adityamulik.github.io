@@ -1,5 +1,4 @@
 import React from 'react';
-import 'font-awesome/css/font-awesome.min.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,7 +6,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import CopyrightIcon from '@material-ui/icons/Copyright';
 
 
 const useStyles = makeStyles((theme) => ({

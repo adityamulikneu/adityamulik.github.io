@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
 import './Dashboard.css';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typewriter from 'typewriter-effect';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import PDFViewer from './PDFViewer';
 import pdf from '../assets/Aditya_Mulik_Resume.pdf';
 import image from '../assets/aditya.png';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Typewriter from 'typewriter-effect';
+import Grid from '@material-ui/core/Grid';
+import { useTheme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import useMediaQuery from '@material-ui/core/useMediaQuery';;
 
 
@@ -24,8 +20,7 @@ const Dashboard = () => {
   return(
     <React.Fragment>
       <div style={{ padding: 20 }}>
-        <Grid container       
-          xs={12} sm={12} md={12}    
+        <Grid container        
           direction={"column"} 
           spacing={5} 
           justify="space-evenly"

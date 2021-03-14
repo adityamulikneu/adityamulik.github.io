@@ -2,7 +2,6 @@ import React from 'react';
 import InstagramEmbed from 'react-instagram-embed';
 
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const CLIENT_ID = process.env.REACT_APP_INSTAGRAM_CLIENT_ID;
