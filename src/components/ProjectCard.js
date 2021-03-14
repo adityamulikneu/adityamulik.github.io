@@ -47,7 +47,12 @@ const ProjectCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" placeholder="Demo: ">Demo: {props.application}</Button>
+        <Button 
+          size="small" 
+          onClick={() => {window.location.href=`${props.url}`}}
+        >
+        Demo
+        </Button>
       </CardActions>
     </Card>
   );

@@ -65,6 +65,7 @@ const Footer = () => {
           />
         </Toolbar>
       </AppBar>
+      <div className={classes.toolbarMargin}/>
     </React.Fragment>
   )  
 };
