@@ -1,57 +1,33 @@
 import React from "react";
-import './PDFViewer.css';
 import { saveAs } from 'file-saver';
 import PDF from '@mikecousins/react-pdf';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
+  app: {
+    display: "flex",
+    border: "none",
+    alignItems: "center",
+    width: "100%",
+    justifyContent: "center"
+  },
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
+    display: "flex",
+    overflowX: "auto",
+    border: "none",
+    boxShadow: "none",
+    justifyContent: "center",    
+    marginTop: 5,
+    marginBottom: 5,
+    // outline: "none",
+  }
 }));
-
-// const Fade = React.forwardRef(function Fade(props, ref) {
-//   const { in: open, children, onEnter, onExited, ...other } = props;
-//   const style = useSpring({
-//     from: { opacity: 0 },
-//     to: { opacity: open ? 1 : 0 },
-//     onStart: () => {
-//       if (open && onEnter) {
-//         onEnter();
-//       }
-//     },
-//     onRest: () => {
-//       if (!open && onExited) {
-//         onExited();
-//       }
-//     },
-//   });
-
-//   return (
-//     <animated.div ref={ref} style={style} {...other}>
-//       {children}
-//     </animated.div>
-//   );
-// });
-
-// Fade.propTypes = {
-//   children: PropTypes.element,
-//   in: PropTypes.bool.isRequired,
-//   onEnter: PropTypes.func,
-//   onExited: PropTypes.func,
-// };
 
 const PDFViewer = ({pdf, onCancel, visible}) => {
 
@@ -68,37 +44,29 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
   };
 
   return(
-    <Modal 
-      className={styles.modal}
-      open={visible}
-      onClose={onCancel}
-      maskClosable={false}
-      style={{top: 20}}
-      width={"50%"}
-    >
-      <div className="pdfWrapper">
-        <PDF 
-          className="pdf"
-          file={pdf}
-          onDocumentError={onDocumentError}
-        >          
-        </PDF>    
-        <IconButton 
-            className="downloadPdf"
-            onClick={saveFile}
-          >
-            <GetAppIcon />
-            <p className="tooltip-download">Download</p>
-          </IconButton>
-          <IconButton 
-            className="closePdf"
-            onClick={onCancel}
-          >
-            <CloseIcon />
-            <p className="tooltip-close">Close</p>
-          </IconButton>          
-      </div>
-    </Modal>
+    <div className={styles.app}>
+      <Modal 
+        className={styles.modal}
+        open={visible}
+        onClose={onCancel}
+        maskClosable={false}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={visible}>
+          <div>
+            <PDF 
+              file={pdf}
+              onDocumentError={onDocumentError}
+            >          
+            </PDF>          
+          </div>
+        </Fade>
+      </Modal>
+    </div>    
   )
 };
 
