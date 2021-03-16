@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",  
     zIndex: 1,
     position: "absolute",
-    top: 15,
+    top: 10,
     right: 0,
     padding: "2px",
   },

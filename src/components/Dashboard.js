@@ -33,7 +33,7 @@ const Dashboard = () => {
           <Grid item style={{textAlign: "center"}}>
             <img src={image} alt="profile-pic" className="profile-pic"/>
           </Grid>
-          <Grid item>
+          <Grid item style={{height: "50px"}}>
             <Typography
             >
               <Typewriter 
