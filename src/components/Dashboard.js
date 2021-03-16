@@ -33,8 +33,9 @@ const Dashboard = () => {
           <Grid item style={{textAlign: "center"}}>
             <img src={image} alt="profile-pic" className="profile-pic"/>
           </Grid>
-          <Grid item style={{height: "50px"}}>
+          <Grid item style={matches ? {height: "180px"} : {height: "50px"}}>
             <Typography
+              style={matches ? {fontSize: 30, textAlign: "center"} : {fontSize: 30}}
             >
               <Typewriter 
                 onInit={(typewriter) => {
