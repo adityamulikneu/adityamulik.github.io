@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { saveAs } from 'file-saver';
 import PDF from '@mikecousins/react-pdf';
 import ReactTooltip from 'react-tooltip';
@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
 
   const styles = useStyles();
+  const [isHidden, toggleHidden] = useState(false);
   
   const onDocumentError = (err) => {
     console.error('pdf viewer error:', err);
@@ -62,6 +63,10 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
 
   const onPageRenderSuccess = () => {
     console.log("test");
+    // toggleHidden(!isHidden);
+    toggleHidden({
+      isHidden:true
+    });
   };
 
   const saveFile = () => {
@@ -75,7 +80,7 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
       <Modal 
         className={styles.modal}
         open={visible}
-        onClose={onCancel}
+        onClose={onCancel }
         maskClosable={false}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -85,8 +90,10 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
       >
       <Fade in={visible}>
         <div className={styles.modalcontainer}>
-          <div className={styles.button}>        
-            <IconButton 
+             
+            {isHidden ? <div 
+              className={styles.button}            
+            > <IconButton 
               className={styles.downloadPdf}
               onClick={saveFile}
             >
@@ -99,8 +106,7 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
             >
               <CloseIcon data-tip="Close"/>
               <ReactTooltip />
-            </IconButton>
-          </div> 
+            </IconButton> </div> : console.log("Disabled!")}                          
           <PDF 
             className={styles.pdf}
             file={pdf}
