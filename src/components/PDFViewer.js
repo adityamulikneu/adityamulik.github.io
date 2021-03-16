@@ -1,7 +1,7 @@
 import React from "react";
 import { saveAs } from 'file-saver';
 import PDF from '@mikecousins/react-pdf';
-import ReactLoading from 'react-loading';
+import ReactTooltip from 'react-tooltip';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     position: "absolute",
     top: 15,
-    right: 15,
+    right: 0,
     padding: "2px",
   },
   downloadPdf: {
@@ -57,7 +57,11 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
   const styles = useStyles();
   
   const onDocumentError = (err) => {
-      console.error('pdf viewer error:', err);
+    console.error('pdf viewer error:', err);
+  };
+
+  const onPageRenderSuccess = () => {
+    console.log("test");
   };
 
   const saveFile = () => {
@@ -79,34 +83,33 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
           timeout: 500,
         }}
       >
-      <div className={styles.modalcontainer}>
-        <div className={styles.button}>        
-          <IconButton 
-            className={styles.downloadPdf}
-            onClick={saveFile}
-          >
-            <GetAppIcon />
-          </IconButton>
-          <IconButton 
-            className={styles.closePdf}
-            onClick={onCancel}
-          >
-            <CloseIcon />
-          </IconButton>
-        </div> 
-        <div className={styles.main}>
-          {
-            visible ?
-            <PDF 
-              className={styles.pdf}
-              file={pdf}
-              onDocumentError={onDocumentError}
-            >                
-            </PDF>              
-            : <ReactLoading type={type} color={color} height={'20%'} width={'20%'} />               
-          }                   
+      <Fade in={visible}>
+        <div className={styles.modalcontainer}>
+          <div className={styles.button}>        
+            <IconButton 
+              className={styles.downloadPdf}
+              onClick={saveFile}
+            >
+              <GetAppIcon data-tip="Download PDF"/>
+              <ReactTooltip />
+            </IconButton>
+            <IconButton 
+              className={styles.closePdf}
+              onClick={onCancel}
+            >
+              <CloseIcon data-tip="Close"/>
+              <ReactTooltip />
+            </IconButton>
+          </div> 
+          <PDF 
+            className={styles.pdf}
+            file={pdf}
+            onDocumentError={onDocumentError}
+            onPageRenderSuccess={onPageRenderSuccess}
+          >                
+          </PDF> 
         </div>  
-      </div>          
+      </Fade>        
       </Modal>
     </div>    
   )
