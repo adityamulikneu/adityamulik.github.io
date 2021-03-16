@@ -62,8 +62,6 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
   };
 
   const onPageRenderSuccess = () => {
-    console.log("test");
-    // toggleHidden(!isHidden);
     toggleHidden({
       isHidden:true
     });
@@ -89,24 +87,27 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
         }}
       >
       <Fade in={visible}>
-        <div className={styles.modalcontainer}>
-             
-            {isHidden ? <div 
-              className={styles.button}            
-            > <IconButton 
-              className={styles.downloadPdf}
-              onClick={saveFile}
-            >
-              <GetAppIcon data-tip="Download PDF"/>
-              <ReactTooltip />
-            </IconButton>
-            <IconButton 
-              className={styles.closePdf}
-              onClick={onCancel}
-            >
-              <CloseIcon data-tip="Close"/>
-              <ReactTooltip />
-            </IconButton> </div> : console.log("Disabled!")}                          
+        <div className={styles.modalcontainer}>   
+            {
+              isHidden ? 
+              <div 
+                className={styles.button}            
+              > <IconButton 
+                className={styles.downloadPdf}
+                onClick={saveFile}
+              >
+                <GetAppIcon data-tip="Download PDF"/>
+                <ReactTooltip />
+              </IconButton>
+              <IconButton 
+                className={styles.closePdf}
+                onClick={onCancel}
+              >
+                <CloseIcon data-tip="Close"/>
+                <ReactTooltip />
+              </IconButton> </div> 
+              : console.log("Button's Disabled!")
+            }                          
           <PDF 
             className={styles.pdf}
             file={pdf}
