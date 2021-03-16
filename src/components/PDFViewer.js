@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   modalcontainer: {
     position: "relative",
+    outline: 0,
   },
   button: {
     display: "flex",
