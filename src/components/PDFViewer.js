@@ -1,6 +1,7 @@
 import React from "react";
 import { saveAs } from 'file-saver';
 import PDF from '@mikecousins/react-pdf';
+import ReactLoading from 'react-loading';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -15,9 +16,11 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     alignItems: "center",
     width: "100%",
-    justifyContent: "center"
+    justifyContent: "center",
+    outline: 0,
   },
   modal: {
+    position: "relative",
     display: "flex",
     overflowX: "auto",
     border: "none",
@@ -25,11 +28,30 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",    
     marginTop: 5,
     marginBottom: 5,
-    // outline: "none",
+    outline: 0,
+  },
+  modalcontainer: {
+    position: "relative",
+  },
+  button: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",  
+    zIndex: 1,
+    position: "absolute",
+    top: 15,
+    right: 15,
+    padding: "2px",
+  },
+  downloadPdf: {
+  },
+  closePdf: {
+    "&:hover": {
+    }
   }
 }));
 
-const PDFViewer = ({pdf, onCancel, visible}) => {
+const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
 
   const styles = useStyles();
   
@@ -56,15 +78,34 @@ const PDFViewer = ({pdf, onCancel, visible}) => {
           timeout: 500,
         }}
       >
-        <Fade in={visible}>
-          <div>
+      <div className={styles.modalcontainer}>
+        <div className={styles.button}>        
+          <IconButton 
+            className={styles.downloadPdf}
+            onClick={saveFile}
+          >
+            <GetAppIcon />
+          </IconButton>
+          <IconButton 
+            className={styles.closePdf}
+            onClick={onCancel}
+          >
+            <CloseIcon />
+          </IconButton>
+        </div> 
+        <div className={styles.main}>
+          {
+            visible ?
             <PDF 
+              className={styles.pdf}
               file={pdf}
               onDocumentError={onDocumentError}
-            >          
-            </PDF>          
-          </div>
-        </Fade>
+            >                
+            </PDF>              
+            : <ReactLoading type={type} color={color} height={'20%'} width={'20%'} />               
+          }                   
+        </div>  
+      </div>          
       </Modal>
     </div>    
   )

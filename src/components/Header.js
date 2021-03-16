@@ -97,8 +97,8 @@ const Header = (props) => {
                       onClose={handleClose}
                   >
                     <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/')}>Home</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>
                     <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/projects')}>My Work</MenuItem>
+                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>                    
                     <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/contact')}>Contact</MenuItem>  
                   </Menu>
                 </div>
@@ -109,12 +109,12 @@ const Header = (props) => {
                 <NavLink to="/" className="navlink" activeClassName="is-active" exact={true}>
                   Home
                 </NavLink>  
-                <NavLink to="/aboutme" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
-                  About Me
-                </NavLink>  
                 <NavLink to="/projects" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
                   My Work
-                </NavLink>   
+                </NavLink> 
+                <NavLink to="/aboutme" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+                  About Me
+                </NavLink>                    
                 <NavLink to="/contact" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
                   Contact
                 </NavLink>
