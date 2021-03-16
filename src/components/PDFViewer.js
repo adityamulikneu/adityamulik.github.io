@@ -62,9 +62,11 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
   };
 
   const onPageRenderSuccess = () => {
-    toggleHidden({
-      isHidden:true
-    });
+    setTimeout(() => {
+      toggleHidden({
+        isHidden:true
+      });
+    }, 1000);    
   };
 
   const saveFile = () => {
