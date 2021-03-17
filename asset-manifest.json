@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.ff2db069.chunk.css",
-    "main.js": "/static/js/main.821d7fb5.chunk.js",
-    "main.js.map": "/static/js/main.821d7fb5.chunk.js.map",
+    "main.css": "/static/css/main.41b8f035.chunk.css",
+    "main.js": "/static/js/main.c8bfa0eb.chunk.js",
+    "main.js.map": "/static/js/main.c8bfa0eb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a921cf73.js",
     "runtime-main.js.map": "/static/js/runtime-main.a921cf73.js.map",
     "static/js/2.011b1840.chunk.js": "/static/js/2.011b1840.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.425f521f.chunk.js": "/static/js/3.425f521f.chunk.js",
     "static/js/3.425f521f.chunk.js.map": "/static/js/3.425f521f.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.ff2db069.chunk.css.map": "/static/css/main.ff2db069.chunk.css.map",
+    "static/css/main.41b8f035.chunk.css.map": "/static/css/main.41b8f035.chunk.css.map",
     "static/js/2.011b1840.chunk.js.LICENSE.txt": "/static/js/2.011b1840.chunk.js.LICENSE.txt",
     "static/media/Aditya_Mulik_Resume.91d8e283.pdf": "/static/media/Aditya_Mulik_Resume.91d8e283.pdf",
     "static/media/aditya.cd853795.png": "/static/media/aditya.cd853795.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.a921cf73.js",
     "static/js/2.011b1840.chunk.js",
-    "static/css/main.ff2db069.chunk.css",
-    "static/js/main.821d7fb5.chunk.js"
+    "static/css/main.41b8f035.chunk.css",
+    "static/js/main.c8bfa0eb.chunk.js"
   ]
 }
