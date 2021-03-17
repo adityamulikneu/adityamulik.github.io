@@ -8,7 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import { useTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';;
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import EmailIcon from '@material-ui/icons/Email';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 
 const Dashboard = () => {
@@ -64,14 +66,16 @@ const Dashboard = () => {
               variant="contained"
               color="primary"
               style={{margin: "10px"}}
+              startIcon={<DescriptionIcon />}
             >
-              Resume
+              Resume!
             </Button>
             <Button
               onClick={() => {window.location.href="mailto:aditya.mulik@gmail.com"}}
               variant="contained"
               color="primary"
               style={{margin: "10px"}}
+              startIcon={<EmailIcon />}
             >
               Email Me!
             </Button>

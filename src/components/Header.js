@@ -117,9 +117,9 @@ const Header = (props) => {
                         onClose={handleClose}
                     >
                       <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/')}>Home</MenuItem>
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/skills')}>Skills</MenuItem>  
                       <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/projects')}>My Work</MenuItem>
-                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>                    
-                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/contact')}>Contact</MenuItem>  
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>                                          
                     </Menu>
                   </div>
                 </Grid>
@@ -142,15 +142,15 @@ const Header = (props) => {
                   <NavLink to="/" className={classes.navlink} activeClassName={classes.isactive} exact={true}>
                     Home
                   </NavLink>  
+                  <NavLink to="/skills" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
+                    Skills
+                  </NavLink>
                   <NavLink to="/projects" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
                     My Work
                   </NavLink> 
                   <NavLink to="/aboutme" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
                     About Me
-                  </NavLink>                    
-                  <NavLink to="/contact" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
-                    Contact
-                  </NavLink>
+                  </NavLink>                                      
                 </Grid>
               </Grid>              
             )
