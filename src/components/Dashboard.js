@@ -42,7 +42,8 @@ const Dashboard = () => {
           </Grid>
           <Grid item style={matches ? {height: "180px"} : {height: "50px"}}>
             <Typography
-              style={matches ? {fontSize: 30, textAlign: "center"} : {fontSize: 30}}
+              style={matches ? {fontSize: 30, textAlign: "center", fontFamily: "Dancing Script, cursive", fontWeight: "bold", } : {fontSize: 30, fontFamily: "Dancing Script, cursive",
+              fontWeight: "bold"}}
             >
               <Typewriter 
                 onInit={(typewriter) => {
