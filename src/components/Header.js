@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, withRouter} from 'react-router-dom';
-import './Header.css';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,6 +34,13 @@ const useStyles = makeStyles((theme) => ({
     },
     navlink: {
       textDecoration: "none",
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+      fontSize: "20px",
+      color: "black",
+      padding: "15px",
+    },
+    isactive: {
+      fontWeight: "bold",
     },
     toolbarMargin: theme.mixins.toolbar
   })
@@ -79,7 +85,7 @@ const Header = (props) => {
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu}>
                     <MenuIcon />
                 </IconButton>
-                <div className="navbar-header">
+                <div>
                   <Menu
                     id="menu-appbar"
                       anchorEl={anchorEl}
@@ -105,16 +111,16 @@ const Header = (props) => {
             ):                     
             (
               <div>
-                <NavLink to="/" className="navlink" activeClassName="is-active" exact={true}>
+                <NavLink to="/" className={classes.navlink} activeClassName={classes.isactive} exact={true}>
                   Home
                 </NavLink>  
-                <NavLink to="/projects" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+                <NavLink to="/projects" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
                   My Work
                 </NavLink> 
-                <NavLink to="/aboutme" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+                <NavLink to="/aboutme" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
                   About Me
                 </NavLink>                    
-                <NavLink to="/contact" className="navlink" activeClassName="is-active" style={{ textDecoration: 'none' }}>
+                <NavLink to="/contact" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
                   Contact
                 </NavLink>
               </div>              
