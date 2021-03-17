@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import './Dashboard.css';
+import React, {useState, useEffect } from 'react';
+import ReactLoading from 'react-loading';
 import PDFViewer from './PDFViewer';
 import pdf from '../assets/Aditya_Mulik_Resume.pdf';
 import image from '../assets/aditya.png';
@@ -17,9 +17,14 @@ const Dashboard = () => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const [showPdf, setShowPdf] = useState(false);
 
+  useEffect(() => {
+    console.log("Rendered!");
+    <ReactLoading type={"balls"} color={"#ffffff"} height={'20%'} width={'20%'} />
+  }, []);
+
   return(
     <React.Fragment>
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 20 }}>        
         <Grid container        
           direction={"column"} 
           spacing={5} 
@@ -31,7 +36,7 @@ const Dashboard = () => {
           }}
         >
           <Grid item style={{textAlign: "center"}}>
-            <img src={image} alt="profile-pic" className="profile-pic"/>
+            <img style={{width: "250px", height: "250px", borderRadius: "50%"}} src={image} alt="profile-pic"/>
           </Grid>
           <Grid item style={matches ? {height: "180px"} : {height: "50px"}}>
             <Typography
@@ -46,7 +51,7 @@ const Dashboard = () => {
                     .start()                
                 }}
               />
-            </Typography>   
+            </Typography>               
           </Grid>
           <Grid item style={{textAlign: "center"}}>
             <PDFViewer 
