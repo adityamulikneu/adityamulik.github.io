@@ -3,6 +3,7 @@ import { NavLink, withRouter} from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -29,8 +30,11 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
       justifyContent:"flex-right",
-      marginLeft: "4px",
-      marginTop: "4px",    
+      // marginLeft: "60px",
+      marginTop: "3px",
+      fontFamily: "Dancing Script, cursive",
+      fontWeight: "bold", 
+      alignItems: "center",
     },
     navlink: {
       textDecoration: "none",
@@ -72,58 +76,83 @@ const Header = (props) => {
   return (
     <div className={classes.root}>
         <AppBar className={classes.appbar} position="fixed" elevation={0}>
-        <Toolbar className={classes.headerClass}>
-          <Typography variant="h4" className={classes.title}>
-            <NavLink to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              Aditya Mulik
-            </NavLink>
-          </Typography>
+        <Toolbar className={classes.headerClass}>          
 
           {matches ? 
             (
-              <div>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu}>
-                    <MenuIcon />
-                </IconButton>
-                <div>
-                  <Menu
-                    id="menu-appbar"
-                      anchorEl={anchorEl}
-                      anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      keepMounted
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      open={open}
-                      onClose={handleClose}
-                  >
-                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/')}>Home</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/projects')}>My Work</MenuItem>
-                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>                    
-                    <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/contact')}>Contact</MenuItem>  
-                  </Menu>
-                </div>
-              </div>
+              <Grid 
+                container
+                justify="space-between"
+                alignItems="center"
+              >
+                <Grid 
+                  item
+                >
+                  <Typography variant="h4" className={classes.title}>
+                    <NavLink to="/" style={{ textDecoration: 'none', color: 'black', alignItems: "center",}}>
+                      Aditya Mulik
+                    </NavLink>
+                  </Typography>
+                </Grid>
+                <Grid 
+                  item
+                >
+                  <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu}>
+                      <MenuIcon />
+                  </IconButton>
+                  <div>
+                    <Menu
+                      id="menu-appbar"
+                        anchorEl={anchorEl}
+                        anchorOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'right',
+                        }}
+                        open={open}
+                        onClose={handleClose}
+                    >
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/')}>Home</MenuItem>
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/projects')}>My Work</MenuItem>
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/aboutme')}>About Me</MenuItem>                    
+                      <MenuItem className={classes.menuitem} onClick={() => handleMenuClick('/contact')}>Contact</MenuItem>  
+                    </Menu>
+                  </div>
+                </Grid>
+              </Grid>
             ):                     
             (
-              <div>
-                <NavLink to="/" className={classes.navlink} activeClassName={classes.isactive} exact={true}>
-                  Home
-                </NavLink>  
-                <NavLink to="/projects" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
-                  My Work
-                </NavLink> 
-                <NavLink to="/aboutme" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
-                  About Me
-                </NavLink>                    
-                <NavLink to="/contact" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
-                  Contact
-                </NavLink>
-              </div>              
+              <Grid 
+                container
+                justify="space-between"
+                alignItems="center"
+              >
+                <Grid item>
+                  <Typography variant="h4" className={classes.title}>
+                    <NavLink to="/" style={{ textDecoration: 'none', color: 'black', alignItems: "center",}}>
+                      Aditya Mulik
+                    </NavLink>
+                  </Typography>
+                </Grid>
+                <Grid item>                
+                  <NavLink to="/" className={classes.navlink} activeClassName={classes.isactive} exact={true}>
+                    Home
+                  </NavLink>  
+                  <NavLink to="/projects" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
+                    My Work
+                  </NavLink> 
+                  <NavLink to="/aboutme" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
+                    About Me
+                  </NavLink>                    
+                  <NavLink to="/contact" className={classes.navlink} activeClassName={classes.isactive} style={{ textDecoration: 'none' }}>
+                    Contact
+                  </NavLink>
+                </Grid>
+              </Grid>              
             )
           }                                                     
         </Toolbar>
