@@ -1,6 +1,6 @@
 import React from 'react';
 import InstagramEmbed from 'react-instagram-embed';
-
+import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -17,15 +17,33 @@ const styles = theme => ({
   }
 });
 
-const Item = props => (<Grid item xs={12} sm={5} md={4} {...props} />)
+const Item = props => (<Grid item {...props} />)
 
 const AboutMe = withStyles(styles)(
   ({ classes }) => (
   <div>
     <Grid 
       container
+      justify="center"
+      alignItems="center"
     > 
-      <Item className={classes.insta}>
+      <Item
+        xs={4} sm={5} md={12}
+      >
+        <Typography>
+          A little bit about me.
+        </Typography>
+        <p>
+          I'm an avid traveller, I live by the intention to explore a new place. <br></br>
+          Addicted to coffee, a diehard Starbucks fan. <br></br>
+          Love roaming around by cycling. <br></br>
+          Photgraphy has been a passion, exploring new places whilst clicking pictures.
+        </p>
+      </Item>
+      <Item 
+        xs={8} sm={5} md={3}
+        className={classes.insta}
+      >
         <InstagramEmbed 
           className="insta-embed"
           url="https://www.instagram.com/p/BtqgBFxnLEZ/"

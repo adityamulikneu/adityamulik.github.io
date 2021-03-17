@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import ReactTooltip from 'react-tooltip';
 import ProjectCard from './ProjectCard';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+// import D3Skills from './D3Skills';
 
 const useStyles = makeStyles((theme) => ({
     calendar : {
@@ -26,23 +27,18 @@ const useStyles = makeStyles((theme) => ({
 const MyWork = () => {
 
   const classes = useStyles();
+  const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   D3Skills(400, 600);
+  // });
 
   return (
     <Grid 
       container
       direction="row"
       justify="center"
-    >
-      <Grid 
-        item 
-        className={classes.calendar} 
-        xs={11} sm={9} md={8}
-      >
-        <Typography />
-        <GitHubCalendar username="adityamulik" className={classes.calendar}>
-          <ReactTooltip delayShow={50} html />
-        </GitHubCalendar>
-      </Grid>   
+    >  
       <Grid 
         item
         direction="row"

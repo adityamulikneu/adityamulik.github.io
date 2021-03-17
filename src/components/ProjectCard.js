@@ -8,46 +8,47 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    // position: 'relative',
+    // width: 400,
+    // height: 400,
+    maxWidth: 375,
+    maxHeight: 575,
     backgroundColor: "#fafafa",
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    // margin: 15,
+    // padding: 5,
   },
   title: {
-    fontSize: 14,
+    fontSize: 34,
   },
-  pos: {
-    marginBottom: 12,
+  body: {
+    // paddingTop: 50,
   },
+  demo: {
+    position: 'absolute',
+    backgroundColor: 'red',
+    marginBottom: 0,
+  },
+  button: {
+    marginBottom: 10,
+  }
 });
 
 const ProjectCard = (props) => {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} variant="h2" component="h2">
           {props.project}
         </Typography>
-        <Typography variant="h5" component="h2">
-          {props.project}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
+        <Typography className={classes.body} variant="body2" component="p">
           {props.description}
-          <br />
-          {props.project}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className={classes.demo}>
         <Button 
+          className={classes.button}
           size="small" 
           onClick={() => {window.location.href=`${props.url}`}}
         >
