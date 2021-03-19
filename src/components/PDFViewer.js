@@ -9,6 +9,8 @@ import Fade from '@material-ui/core/Fade';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import FullscreenIcon from '@material-ui/icons/Fullscreen';
+import { scaleBand } from "d3-scale";
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -35,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
     outline: 0,
   },
   button: {
+    position: "absolute",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",  
     zIndex: 1,
-    position: "absolute",
     top: 10,
     right: 0,
     padding: "2px",
@@ -49,7 +51,16 @@ const useStyles = makeStyles((theme) => ({
   closePdf: {
     "&:hover": {
     }
-  }
+  },
+  fullscreenPdf: {
+    position: "fixed",
+    bottom: 0,
+    marginLeft: 50,
+    "&:hover": {
+      color: "black",
+      transform: "scale(1.5)",
+    }
+  },
 }));
 
 const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
@@ -75,6 +86,10 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
     )
   };
 
+  const handleFullScreen = () => {
+    document.getElementById("pdf").requestFullscreen();
+  };
+
   return(
     <div className={styles.app}>
       <Modal 
@@ -94,23 +109,32 @@ const PDFViewer = ({pdf, onCancel, visible, type, color}) => {
               isHidden ? 
               <div 
                 className={styles.button}            
-              > <IconButton 
-                className={styles.downloadPdf}
-                onClick={saveFile}
-              >
-                <GetAppIcon data-tip="Download PDF"/>
-                <ReactTooltip />
-              </IconButton>
-              <IconButton 
-                className={styles.closePdf}
-                onClick={onCancel}
-              >
-                <CloseIcon data-tip="Close"/>
-                <ReactTooltip />
-              </IconButton> </div> 
+              > 
+                <IconButton 
+                  className={styles.downloadPdf}
+                  onClick={saveFile}
+                >
+                  <GetAppIcon data-tip="Download PDF"/>
+                  <ReactTooltip />
+                </IconButton>
+                <IconButton 
+                  className={styles.closePdf}
+                  onClick={onCancel}
+                >
+                  <CloseIcon data-tip="Close"/>
+                  <ReactTooltip />
+                </IconButton>   
+                <IconButton 
+                  className={styles.fullscreenPdf}
+                  onClick={handleFullScreen}
+                >
+                  <FullscreenIcon data-tip="Fullscreen"/>
+                </IconButton>            
+              </div> 
               : console.log("Button's Disabled!")
             }                          
           <PDF 
+            id="pdf"
             className={styles.pdf}
             file={pdf}
             onDocumentError={onDocumentError}
