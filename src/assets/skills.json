@@ -7,19 +7,19 @@
     {
      "name": "Python",
      "children": [
-      {"name": "Django", "value": 3938},
-      {"name": "Web Scrapping", "value": 3812},
-      {"name": "Automation", "value": 6714},
-      {"name": "Data Analysis", "value": 743}
+      {"name": "Django", "value": 7},
+      {"name": "Web Scrapping", "value": 8},
+      {"name": "Automation", "value": 7},
+      {"name": "Data Analysis", "value": 8}
      ]
     },
     {
      "name": "JavaScript",
      "children": [
-      {"name": "ReactJS", "value": 3534},
-      {"name": "NodeJS", "value": 5731},
-      {"name": "ES6", "value": 7840},
-      {"name": "Graph", "value": 5914}
+      {"name": "ReactJS", "value": 8},
+      {"name": "NodeJS", "value": 6},
+      {"name": "ES6", "value": 7},
+      {"name": "Graphing", "value": 6}
      ]
     }
    ]
@@ -30,17 +30,17 @@
     {
       "name": "Sorting",
       "children": [
-       {"name": "Bubble Sort", "value": 3938},
-       {"name": "Quick Sort", "value": 3812},
-       {"name": "Merge Sort", "value": 6714},
-       {"name": "Selection Sort", "value": 743}
+       {"name": "Bubble Sort", "value": 8},
+       {"name": "Quick Sort", "value": 8},
+       {"name": "Merge Sort", "value": 6},
+       {"name": "Selection Sort", "value": 4}
       ]
      },
      {
       "name": "Searching",
       "children": [
-       {"name": "Linear Search", "value": 3534},
-       {"name": "Binary Search", "value": 5731}
+       {"name": "Linear Search", "value": 9},
+       {"name": "Binary Search", "value": 6}
       ]
      }
    ]
@@ -48,15 +48,15 @@
   {
    "name": "Web",
    "children": [
-      {"name": "HTML", "value": 721},
-      {"name": "CSS3", "value": 4294}
+      {"name": "HTML", "value": 8},
+      {"name": "CSS3", "value": 8}
     ]
   },
   {
    "name": "Database",
    "children": [
-    {"name": "Relational Database", "value": 8833},
-    {"name": "NoSQL Database", "value": 1732}
+    {"name": "Relational Database", "value": 7},
+    {"name": "NoSQL Database", "value": 5}
    ]
   }
  ]
